@@ -23,3 +23,16 @@ Interaction:
 - it will display the data in the bar chart
 - you can stop the polling by clicking Stop
 - you can reset the data by clicking Reset
+
+Areas for improvement:
+PHP
+- encapsulate php functionality into a class and add phpunit tests
+- parameterize routes so that it can fetch data from different SNMP OIDs
+
+Javascript
+- extract factory to a separate file and parametrize to add flexibility to be able to hit different endpoints
+- add tests for router and factory
+
+E2E
+- incorporate e2e tests
+- handle errors and edge cases (e.g. when SNMP is not returning anything)
