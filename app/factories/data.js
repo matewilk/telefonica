@@ -1,6 +1,12 @@
 export default function ($resource)
 {
-    return $resource('http://localhost:80', {}, {
-        query: { method: 'GET', params: {}, headers: {'Access-Control-Allow-Origin': '*'}}
-    });
+
+
+    return {
+        query: function(pollingUrl, callback){
+            return $resource(pollingUrl, {}, {
+                query: { method: 'GET', params: {}, headers: {'Access-Control-Allow-Origin': '*'}}
+            }).query(callback);
+        }
+    }
 }

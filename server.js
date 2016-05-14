@@ -8,6 +8,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.json());
 // Used for production build
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/app', express.static(__dirname + '/app'));
 
 
 app.all('/*', function(req, res) {
@@ -17,4 +18,3 @@ app.all('/*', function(req, res) {
 app.listen(PORT, function(){
     console.log('Server listening on port: ' + PORT);
 });
-

@@ -7,7 +7,7 @@ import 'chart.js';
 import 'angular-chart.js/dist/angular-chart.js';
 
 //import controllers
-//import mainController from '../app/controllers/main';
+import mainController from '../app/controllers/main';
 
 //import factories
 import dataFactory from '../app/factories/data';
@@ -35,7 +35,7 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider, ChartJsProvid
         showTooltips: false
     });
 })
-//.controller('MainCtrl', mainController)
+.controller('MainCtrl', mainController)
 .factory('DataFactory', dataFactory)
 .directive('chart', chartDirective);
 

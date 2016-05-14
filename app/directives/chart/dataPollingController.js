@@ -1,5 +1,8 @@
 export default function ($scope, $interval, $timeout, DataFactory)
 {
+    $scope.getUrl = function(type){
+        return `app/directives/chart/types/${type}.html`;
+    }
     //progress bar variables
     $scope.progressValue = 0;
     $scope.fetchData = false;
@@ -52,7 +55,7 @@ export default function ($scope, $interval, $timeout, DataFactory)
 
     $scope.sendRequest = function(){
         $scope.indicateRequest(true);
-        DataFactory.query($scope.responseCallback);
+        DataFactory.query($scope.pollingUrl, $scope.responseCallback);
     }
 
     $scope.responseCallback = function(response){
