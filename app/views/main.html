@@ -1,10 +1,16 @@
-<div ng-controller="MainCtrl" layout-padding layout-gt-sm="row">
-    <div layout="column">
-        <md-button class="md-raised" ng-disabled="started" ng-click="startAll()">Start all</md-button>
-        <md-button class="md-raised" ng-disabled="started" ng-click="stopAll()">Stop all</md-button>
-        <md-button class="md-raised" ng-disabled="started" ng-click="resetAll()">Reset all</md-button>
+<div ng-controller="MainCtrl" layout-padding layout="column">
+    <div layout-gt-sm="row" layout-padding>
+        <div layout="column">
+            <md-button class="md-raised" ng-disabled="started" ng-click="startAll()">Start all</md-button>
+            <md-button class="md-raised" ng-disabled="started" ng-click="stopAll()">Stop all</md-button>
+            <md-button class="md-raised" ng-disabled="started" ng-click="resetAll()">Reset all</md-button>
+        </div>
+
+        <chart flex type="line" polling-url="http://localhost:80"></chart>
+        <chart flex type="bar" polling-url="http://localhost:80"></chart>
     </div>
 
-    <chart flex type="line" polling-url="http://localhost:80"></chart>
-    <chart flex type="bar" polling-url="http://localhost:80"></chart>
+    <div>
+        <receiver-chart></receiver-chart>
+    </div>
 </div>

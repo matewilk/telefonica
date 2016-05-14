@@ -1,8 +1,5 @@
 export default function ($scope, $interval, $timeout, DataFactory)
 {
-    $scope.getUrl = function(type){
-        return `app/directives/chart/types/${type}.html`;
-    }
     //progress bar variables
     $scope.progressValue = 0;
     $scope.fetchData = false;
@@ -62,7 +59,7 @@ export default function ($scope, $interval, $timeout, DataFactory)
         $scope.indicateRequest(false);
         $scope.clearData();
         $scope.increaseLabelCout();
-        $scope.addValueToData(response.value);
+        $scope.$emit('addValue', {series: $scope.type, value: response.value});
         $scope.startPolling();
     }
 
@@ -79,6 +76,14 @@ export default function ($scope, $interval, $timeout, DataFactory)
     $scope.addValueToData = function(value){
         $scope.data.push(value);
     }
+
+    $scope.getChartTemplate = function(type){
+        return `app/directives/chart/types/${type}.html`;
+    }
+
+    $scope.$on('addValue', function(event, valueObj){
+        $scope.addValueToData(valueObj.value);
+    });
 
     return $scope;
 }

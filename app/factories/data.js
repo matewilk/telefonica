@@ -1,7 +1,5 @@
 export default function ($resource)
 {
-
-
     return {
         query: function(pollingUrl, callback){
             return $resource(pollingUrl, {}, {

@@ -14,6 +14,7 @@ import dataFactory from '../app/factories/data';
 
 //import directives
 import {chartDirective} from '../app/directives/chart/chartDirective';
+import {receiverChartDirective} from '../app/directives/receiverChart/receiverChartDirective';
 
 //initialize app
 const app = angular.module('app', [uiRouter, angularMaterial, ngResource, 'chart.js',]);
@@ -37,6 +38,7 @@ app.config(($stateProvider, $urlRouterProvider, $locationProvider, ChartJsProvid
 })
 .controller('MainCtrl', mainController)
 .factory('DataFactory', dataFactory)
-.directive('chart', chartDirective);
+.directive('chart', chartDirective)
+.directive('receiverChart', receiverChartDirective);
 
 export default app;
