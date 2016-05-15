@@ -10,7 +10,7 @@ describe('Data Polling Controller', function() {
         mockedInterval.cancel = function(){};
         mockedScope = {$on: function(){}, $emit: function(){}}
         ctrl = controller(mockedScope, mockedInterval);
-    })
+    });
 
     beforeEach(function(){
         spyOn(ctrl, 'start').and.callThrough();

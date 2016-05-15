@@ -1,6 +1,8 @@
 export default function ($rootScope, $scope)
 {
     $scope.isLoaded = false;
+    $scope.started = false;
+
     $rootScope.$on('$includeContentLoaded', function(event) {
         $scope.isLoaded = true;
     });
