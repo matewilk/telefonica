@@ -6,10 +6,12 @@ export default function ($rootScope, $scope)
     });
 
     $scope.startAll = function(){
+        $scope.started = true;
         $rootScope.$broadcast('startAll');
     }
 
     $scope.stopAll = function(){
+        $scope.started = false;
         $rootScope.$broadcast('stopAll');
     }
 

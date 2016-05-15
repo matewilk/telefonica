@@ -4,7 +4,7 @@ module.exports = function(config){
     basePath : './',
 
     preprocessors: {
-      'app/controllers/**/*.js': ['babel']
+      'app/controller/**/*.js': ['babel']
     },
     babelPreprocessor: {
         options: {
@@ -31,7 +31,7 @@ module.exports = function(config){
 
     autoWatch : true,
 
-    browsers : ['PhantomJS'],
+    browsers : ['Chrome'],
 
     plugins : [
             'karma-chrome-launcher',

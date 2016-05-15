@@ -6,15 +6,17 @@ export default function ($scope, $interval, $timeout, DataFactory)
 
     //chart initial setup
     $scope.labels = [];
-    $scope.series = ['Series A'];
-    $scope.data = [0];
+    $scope.series = [$scope.type];
+    $scope.data = [[0]];
 
     //status variable
     $scope.started = false;
 
     $scope.start = function(){
+        if(!$scope.started){
+            $scope.startPolling();
+        }
         $scope.started = true;
-        $scope.startPolling();
     }
 
     $scope.stop = function(){
@@ -23,8 +25,9 @@ export default function ($scope, $interval, $timeout, DataFactory)
     }
 
     $scope.reset = function(){
-        $scope.data = [0];
+        $scope.data = [[0]];
         $scope.labels = [];
+        $scope.$emit('reset', {series: $scope.type})
     }
 
     var interval;
@@ -64,8 +67,8 @@ export default function ($scope, $interval, $timeout, DataFactory)
     }
 
     $scope.clearData = function() {
-        if($scope.data[0] === 0){
-            $scope.data = [];
+        if($scope.data[0][0] === 0){
+            $scope.data = [[]];
         }
     }
 
@@ -74,7 +77,7 @@ export default function ($scope, $interval, $timeout, DataFactory)
     }
 
     $scope.addValueToData = function(value){
-        $scope.data.push(value);
+        $scope.data[0].push(value);
     }
 
     $scope.getChartTemplate = function(type){
